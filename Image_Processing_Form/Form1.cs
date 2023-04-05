@@ -101,7 +101,30 @@ namespace Image_Processing_Form
 
         private void btn_Gray_Click(object sender, EventArgs e)
         {
-            var pic = SetGrayscale(originalPic);
+            if (originalPic != null)
+            {
+                var pic = Resize(originalPic, pb_processed.Width, pb_processed.Height);
+                pic = SetGrayscale(pic);
+                pb_processed.Image = pic;
+            }
+            else
+            {
+                MessageBox.Show("There is no image to generate the GrayScale of", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //FunnE messagebox rage could be made here
+                //bool exit = true;
+                //do
+                //{
+                //    int count = 0;
+                //    switch (count)
+                //    {
+                //        case 0:
+                //            MessageBox.Show("There is no image to generate the GrayScale of", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                //            break;
+                //        default:
+                //            break;
+                //    }
+                //} while (!exit);
+            }
         }
         /// <summary>
         /// Generates the given picture grayscale

@@ -58,6 +58,8 @@
             // 
             // btn_browse
             // 
+            this.btn_browse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.btn_browse.Location = new System.Drawing.Point(553, 97);
             this.btn_browse.Name = "btn_browse";
             this.btn_browse.Size = new System.Drawing.Size(93, 50);
@@ -68,6 +70,8 @@
             // 
             // btn_Gray
             // 
+            this.btn_Gray.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_Gray.Location = new System.Drawing.Point(706, 444);
             this.btn_Gray.Name = "btn_Gray";
             this.btn_Gray.Size = new System.Drawing.Size(93, 50);
@@ -78,15 +82,19 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(772, 497);
+            this.label1.Location = new System.Drawing.Point(610, 497);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 20);
+            this.label1.Size = new System.Drawing.Size(217, 20);
             this.label1.TabIndex = 4;
-            this.label1.Text = "------>";
+            this.label1.Text = "sets the image grayscale------>";
             // 
             // label2
             // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(527, 150);
             this.label2.Name = "label2";
