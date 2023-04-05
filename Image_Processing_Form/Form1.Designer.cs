@@ -40,23 +40,25 @@
             // 
             // pb_original
             // 
+            this.pb_original.Dock = System.Windows.Forms.DockStyle.Left;
             this.pb_original.Location = new System.Drawing.Point(0, 0);
             this.pb_original.Name = "pb_original";
-            this.pb_original.Size = new System.Drawing.Size(424, 690);
+            this.pb_original.Size = new System.Drawing.Size(521, 690);
             this.pb_original.TabIndex = 0;
             this.pb_original.TabStop = false;
             // 
             // pb_processed
             // 
-            this.pb_processed.Location = new System.Drawing.Point(583, 0);
+            this.pb_processed.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pb_processed.Location = new System.Drawing.Point(833, 0);
             this.pb_processed.Name = "pb_processed";
-            this.pb_processed.Size = new System.Drawing.Size(413, 690);
+            this.pb_processed.Size = new System.Drawing.Size(469, 690);
             this.pb_processed.TabIndex = 1;
             this.pb_processed.TabStop = false;
             // 
             // btn_browse
             // 
-            this.btn_browse.Location = new System.Drawing.Point(456, 96);
+            this.btn_browse.Location = new System.Drawing.Point(553, 97);
             this.btn_browse.Name = "btn_browse";
             this.btn_browse.Size = new System.Drawing.Size(93, 50);
             this.btn_browse.TabIndex = 2;
@@ -66,17 +68,18 @@
             // 
             // btn_Gray
             // 
-            this.btn_Gray.Location = new System.Drawing.Point(456, 450);
+            this.btn_Gray.Location = new System.Drawing.Point(706, 444);
             this.btn_Gray.Name = "btn_Gray";
             this.btn_Gray.Size = new System.Drawing.Size(93, 50);
             this.btn_Gray.TabIndex = 3;
             this.btn_Gray.Text = "Gray";
             this.btn_Gray.UseVisualStyleBackColor = true;
+            this.btn_Gray.Click += new System.EventHandler(this.btn_Gray_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(522, 503);
+            this.label1.Location = new System.Drawing.Point(772, 497);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 20);
             this.label1.TabIndex = 4;
@@ -85,7 +88,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(430, 149);
+            this.label2.Location = new System.Drawing.Point(527, 150);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(233, 20);
             this.label2.TabIndex = 5;
@@ -95,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(996, 690);
+            this.ClientSize = new System.Drawing.Size(1302, 690);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btn_Gray);
