@@ -28,98 +28,112 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pb_original = new System.Windows.Forms.PictureBox();
-            this.pb_processed = new System.Windows.Forms.PictureBox();
-            this.btn_browse = new System.Windows.Forms.Button();
-            this.btn_Gray = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_original)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_processed)).BeginInit();
-            this.SuspendLayout();
+            pb_original = new PictureBox();
+            pb_processed = new PictureBox();
+            btn_browse = new Button();
+            btn_Gray = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            btn_ScanFolder = new Button();
+            ((System.ComponentModel.ISupportInitialize)pb_original).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pb_processed).BeginInit();
+            SuspendLayout();
             // 
             // pb_original
             // 
-            this.pb_original.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pb_original.Location = new System.Drawing.Point(0, 0);
-            this.pb_original.Name = "pb_original";
-            this.pb_original.Size = new System.Drawing.Size(521, 690);
-            this.pb_original.TabIndex = 0;
-            this.pb_original.TabStop = false;
+            pb_original.Dock = DockStyle.Left;
+            pb_original.Location = new Point(0, 0);
+            pb_original.Margin = new Padding(3, 2, 3, 2);
+            pb_original.Name = "pb_original";
+            pb_original.Size = new Size(456, 639);
+            pb_original.TabIndex = 0;
+            pb_original.TabStop = false;
             // 
             // pb_processed
             // 
-            this.pb_processed.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pb_processed.Location = new System.Drawing.Point(833, 0);
-            this.pb_processed.Name = "pb_processed";
-            this.pb_processed.Size = new System.Drawing.Size(469, 690);
-            this.pb_processed.TabIndex = 1;
-            this.pb_processed.TabStop = false;
+            pb_processed.Dock = DockStyle.Right;
+            pb_processed.Location = new Point(729, 0);
+            pb_processed.Margin = new Padding(3, 2, 3, 2);
+            pb_processed.Name = "pb_processed";
+            pb_processed.Size = new Size(410, 639);
+            pb_processed.TabIndex = 1;
+            pb_processed.TabStop = false;
             // 
             // btn_browse
             // 
-            this.btn_browse.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.btn_browse.Location = new System.Drawing.Point(553, 97);
-            this.btn_browse.Name = "btn_browse";
-            this.btn_browse.Size = new System.Drawing.Size(93, 50);
-            this.btn_browse.TabIndex = 2;
-            this.btn_browse.Text = "Browse";
-            this.btn_browse.UseVisualStyleBackColor = true;
-            this.btn_browse.Click += new System.EventHandler(this.btn_browse_Click);
+            btn_browse.Anchor = AnchorStyles.Left;
+            btn_browse.Location = new Point(484, 133);
+            btn_browse.Margin = new Padding(3, 2, 3, 2);
+            btn_browse.Name = "btn_browse";
+            btn_browse.Size = new Size(81, 38);
+            btn_browse.TabIndex = 2;
+            btn_browse.Text = "Browse";
+            btn_browse.UseVisualStyleBackColor = true;
+            btn_browse.Click += btn_browse_Click;
             // 
             // btn_Gray
             // 
-            this.btn_Gray.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Gray.Location = new System.Drawing.Point(706, 444);
-            this.btn_Gray.Name = "btn_Gray";
-            this.btn_Gray.Size = new System.Drawing.Size(93, 50);
-            this.btn_Gray.TabIndex = 3;
-            this.btn_Gray.Text = "Gray";
-            this.btn_Gray.UseVisualStyleBackColor = true;
-            this.btn_Gray.Click += new System.EventHandler(this.btn_Gray_Click);
+            btn_Gray.Anchor = AnchorStyles.Right;
+            btn_Gray.Location = new Point(618, 393);
+            btn_Gray.Margin = new Padding(3, 2, 3, 2);
+            btn_Gray.Name = "btn_Gray";
+            btn_Gray.Size = new Size(81, 38);
+            btn_Gray.TabIndex = 3;
+            btn_Gray.Text = "Gray";
+            btn_Gray.UseVisualStyleBackColor = true;
+            btn_Gray.Click += btn_Gray_Click;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(610, 497);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(217, 20);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "sets the image grayscale------>";
+            label1.Anchor = AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.Location = new Point(534, 433);
+            label1.Name = "label1";
+            label1.Size = new Size(173, 15);
+            label1.TabIndex = 4;
+            label1.Text = "sets the image grayscale------>";
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(527, 150);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(233, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "<------ resized image but original";
+            label2.Anchor = AnchorStyles.Left;
+            label2.AutoSize = true;
+            label2.Location = new Point(461, 172);
+            label2.Name = "label2";
+            label2.Size = new Size(184, 15);
+            label2.TabIndex = 5;
+            label2.Text = "<------ resized image but original";
+            // 
+            // btn_ScanFolder
+            // 
+            btn_ScanFolder.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btn_ScanFolder.Location = new Point(534, 268);
+            btn_ScanFolder.Margin = new Padding(3, 2, 3, 2);
+            btn_ScanFolder.Name = "btn_ScanFolder";
+            btn_ScanFolder.Size = new Size(111, 61);
+            btn_ScanFolder.TabIndex = 6;
+            btn_ScanFolder.Text = "Select Folder for scan";
+            btn_ScanFolder.UseVisualStyleBackColor = true;
+            btn_ScanFolder.Click += btn_ScanFolder_Click;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1302, 690);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btn_Gray);
-            this.Controls.Add(this.btn_browse);
-            this.Controls.Add(this.pb_processed);
-            this.Controls.Add(this.pb_original);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pb_original)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_processed)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1139, 639);
+            Controls.Add(btn_ScanFolder);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(btn_Gray);
+            Controls.Add(btn_browse);
+            Controls.Add(pb_processed);
+            Controls.Add(pb_original);
+            Margin = new Padding(3, 2, 3, 2);
+            Name = "Form1";
+            Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)pb_original).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pb_processed).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -130,5 +144,6 @@
         private Button btn_Gray;
         private Label label1;
         private Label label2;
+        private Button btn_ScanFolder;
     }
 }

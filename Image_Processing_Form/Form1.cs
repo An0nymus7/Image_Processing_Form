@@ -14,11 +14,11 @@ namespace Image_Processing_Form
         private void btn_browse_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK 
+            if (ofd.ShowDialog() == DialogResult.OK
                 && Regex.IsMatch(ofd.FileName, @"\.(jpg|jpeg|png|gif|bmp)$", RegexOptions.IgnoreCase)) // checks if the dialogresult is ok and the given file is picture and ignoring case
             {
                 originalPic = new Bitmap(ofd.FileName);
-                pb_original.Image = Resize(originalPic,pb_original.Width,pb_original.Height);//resizes the img to the pb_box size
+                pb_original.Image = Resize(originalPic, pb_original.Width, pb_original.Height);//resizes the img to the pb_box size
             }
         }
 
@@ -146,6 +146,27 @@ namespace Image_Processing_Form
                 }
             }
             return (Bitmap)bmap.Clone();
+        }
+
+        private void btn_ScanFolder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OpenFileDialog ofd = new OpenFileDialog();
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    string[] pictureFiles = Directory.GetFiles(ofd.FileName, "*.jpg", SearchOption.AllDirectories);
+
+                    ;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
         }
     }
 }
