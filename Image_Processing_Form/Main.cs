@@ -1,10 +1,11 @@
 using System.Text.RegularExpressions;
+using static Image_Processing_Form.Error_Window;
 
 namespace Image_Processing_Form
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
             InitializeComponent();
 
@@ -15,7 +16,7 @@ namespace Image_Processing_Form
         {
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK
-                && Regex.IsMatch(ofd.FileName, @"\.(jpg|jpeg|png|gif|bmp)$", RegexOptions.IgnoreCase)) // checks if the dialogresult is ok and the given file is picture and ignoring case
+                && Ispicture(ofd.FileName)) // checks if the dialogresult is ok and the given file is picture and ignoring case
             {
                 originalPic = new Bitmap(ofd.FileName);
                 pb_original.Image = Resize(originalPic, pb_original.Width, pb_original.Height);//resizes the img to the pb_box size
@@ -152,21 +153,63 @@ namespace Image_Processing_Form
         {
             try
             {
-                OpenFileDialog ofd = new OpenFileDialog();
-                if (ofd.ShowDialog() == DialogResult.OK)
+                using (var folder = new FolderBrowserDialog())
                 {
-                    string[] pictureFiles = Directory.GetFiles(ofd.FileName, "*.jpg", SearchOption.AllDirectories);
+                    //checks if selected folder dialog result is okay and the path is not null or whitespace
+                    if (DialogResult.OK == folder.ShowDialog() && !string.IsNullOrWhiteSpace(folder.SelectedPath))
+                    {
+                        string[] pirturefiles = Directory.GetFiles(folder.SelectedPath, "*.*", SearchOption.TopDirectoryOnly).Where(file => Ispicture(file)).ToArray();
 
-                    ;
+                        foreach (string pictureFile in pirturefiles)
+                        {
+                            // Perform the desired operations with the picture file
+                            // For example, you can copy or move the file to another location
+                            // or store the file path in a data structure for further processing.
+                        }
+                        ShowCustomDialog("Scanning was succesfull.", MessageType.Information);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                ShowCustomDialog($"There was an error:{ex.Message}", MessageType.Error);
+            }
+
+
+        }
+
+        //checks if the given file is picture or not.
+        private bool Ispicture(string file)
+        {
+            string extension = Path.GetExtension(file).ToLower();
+            string[] supportedExtensions = { ".jpg", ".jpeg", ".png", ".gif", ".bmp" }; // Add more supported extensions if needed
+
+            return supportedExtensions.Contains(extension);
+        }
+        private void ShowCustomDialog(string message, MessageType type)
+        {
+            using (var customDialog = new Error_Window())
+            {
+                customDialog.message = message;
+                customDialog.DialogMessageType = type;
+                DialogResult result = customDialog.ShowDialog();
+
+                // Handle the dialog result
+                if (result == DialogResult.OK)
+                {
+                    customDialog.Close();
                 }
             }
-            catch (Exception)
+        }
+
+        private void btn_resize_Click(object sender, EventArgs e)
+        {
+            if (originalPic != null)
             {
-
-                throw;
+                var pic = Resize(originalPic, 640, 480);
+                pb_processed.Image = pic;
             }
-
-
         }
     }
 }

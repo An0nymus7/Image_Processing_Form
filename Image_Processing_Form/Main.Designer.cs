@@ -1,6 +1,6 @@
 ﻿namespace Image_Processing_Form
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         ///  Required designer variable.
@@ -35,6 +35,8 @@
             label1 = new Label();
             label2 = new Label();
             btn_ScanFolder = new Button();
+            btn_resize = new Button();
+            label3 = new Label();
             ((System.ComponentModel.ISupportInitialize)pb_original).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pb_processed).BeginInit();
             SuspendLayout();
@@ -45,24 +47,24 @@
             pb_original.Location = new Point(0, 0);
             pb_original.Margin = new Padding(3, 2, 3, 2);
             pb_original.Name = "pb_original";
-            pb_original.Size = new Size(456, 639);
+            pb_original.Size = new Size(456, 681);
             pb_original.TabIndex = 0;
             pb_original.TabStop = false;
             // 
             // pb_processed
             // 
             pb_processed.Dock = DockStyle.Right;
-            pb_processed.Location = new Point(729, 0);
+            pb_processed.Location = new Point(854, 0);
             pb_processed.Margin = new Padding(3, 2, 3, 2);
             pb_processed.Name = "pb_processed";
-            pb_processed.Size = new Size(410, 639);
+            pb_processed.Size = new Size(410, 681);
             pb_processed.TabIndex = 1;
             pb_processed.TabStop = false;
             // 
             // btn_browse
             // 
             btn_browse.Anchor = AnchorStyles.Left;
-            btn_browse.Location = new Point(484, 133);
+            btn_browse.Location = new Point(484, 154);
             btn_browse.Margin = new Padding(3, 2, 3, 2);
             btn_browse.Name = "btn_browse";
             btn_browse.Size = new Size(81, 38);
@@ -74,7 +76,7 @@
             // btn_Gray
             // 
             btn_Gray.Anchor = AnchorStyles.Right;
-            btn_Gray.Location = new Point(618, 393);
+            btn_Gray.Location = new Point(743, 414);
             btn_Gray.Margin = new Padding(3, 2, 3, 2);
             btn_Gray.Name = "btn_Gray";
             btn_Gray.Size = new Size(81, 38);
@@ -87,7 +89,7 @@
             // 
             label1.Anchor = AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(534, 433);
+            label1.Location = new Point(659, 454);
             label1.Name = "label1";
             label1.Size = new Size(173, 15);
             label1.TabIndex = 4;
@@ -97,7 +99,7 @@
             // 
             label2.Anchor = AnchorStyles.Left;
             label2.AutoSize = true;
-            label2.Location = new Point(461, 172);
+            label2.Location = new Point(461, 193);
             label2.Name = "label2";
             label2.Size = new Size(184, 15);
             label2.TabIndex = 5;
@@ -105,21 +107,45 @@
             // 
             // btn_ScanFolder
             // 
-            btn_ScanFolder.Anchor = AnchorStyles.Left | AnchorStyles.Right;
-            btn_ScanFolder.Location = new Point(534, 268);
+            btn_ScanFolder.Anchor = AnchorStyles.None;
+            btn_ScanFolder.Location = new Point(534, 281);
             btn_ScanFolder.Margin = new Padding(3, 2, 3, 2);
             btn_ScanFolder.Name = "btn_ScanFolder";
-            btn_ScanFolder.Size = new Size(111, 61);
+            btn_ScanFolder.Size = new Size(146, 61);
             btn_ScanFolder.TabIndex = 6;
             btn_ScanFolder.Text = "Select Folder for scan";
             btn_ScanFolder.UseVisualStyleBackColor = true;
             btn_ScanFolder.Click += btn_ScanFolder_Click;
             // 
-            // Form1
+            // btn_resize
+            // 
+            btn_resize.Anchor = AnchorStyles.Right;
+            btn_resize.Location = new Point(743, 482);
+            btn_resize.Margin = new Padding(3, 2, 3, 2);
+            btn_resize.Name = "btn_resize";
+            btn_resize.Size = new Size(81, 38);
+            btn_resize.TabIndex = 7;
+            btn_resize.Text = "Resize";
+            btn_resize.UseVisualStyleBackColor = true;
+            btn_resize.Click += btn_resize_Click;
+            // 
+            // label3
+            // 
+            label3.Anchor = AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.Location = new Point(659, 522);
+            label3.Name = "label3";
+            label3.Size = new Size(195, 15);
+            label3.TabIndex = 8;
+            label3.Text = "Resizes the image 1280x720  ------>";
+            // 
+            // Main
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1139, 639);
+            ClientSize = new Size(1264, 681);
+            Controls.Add(label3);
+            Controls.Add(btn_resize);
             Controls.Add(btn_ScanFolder);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -128,7 +154,8 @@
             Controls.Add(pb_processed);
             Controls.Add(pb_original);
             Margin = new Padding(3, 2, 3, 2);
-            Name = "Form1";
+            MinimumSize = new Size(1280, 720);
+            Name = "Main";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pb_original).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_processed).EndInit();
@@ -145,5 +172,7 @@
         private Label label1;
         private Label label2;
         private Button btn_ScanFolder;
+        private Button btn_resize;
+        private Label label3;
     }
 }
