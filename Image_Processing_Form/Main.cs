@@ -205,11 +205,68 @@ namespace Image_Processing_Form
 
         private void btn_resize_Click(object sender, EventArgs e)
         {
+            ShowResizeDialog();
             if (originalPic != null)
             {
                 var pic = Resize(originalPic, 640, 480);
                 pb_processed.Image = pic;
             }
+        }
+        private void ShowResizeDialog()
+        {
+            Form prompt = new Form()
+            {
+                Width = 250,
+                Height = 150,
+                FormBorderStyle = FormBorderStyle.SizableToolWindow,
+                Text = "Resize Picture",
+                StartPosition = FormStartPosition.CenterScreen,
+                MinimumSize = new Size(250, 150),
+                MaximumSize = new Size(250, 150)
+            };
+
+
+            Label lblWidth = new Label() { Left = 15, Top = 20, Text = "Width:" };
+            ComboBox comboBox = new ComboBox() { Left = 80, Top = 20, Width = 120 };
+
+            string[] t = { "320 x 240", "640 x 480", "800 x 600", "1024 x 768", "1280 x 720", "1366 x 768", "1600 x 900", "1920 x 1080", "2560 x 1440", "3840 x 2160" };
+
+            foreach (string item in t)
+            {
+                comboBox.Items.Add(item);
+            }
+
+            Button btnOK = new Button() { Text = "OK", Left = 20, Width = 100, Top = 80, DialogResult = DialogResult.OK };
+            Button btnCancel = new Button() { Text = "Cancel", Left = 130, Width = 100, Top = 80, DialogResult = DialogResult.Cancel };
+
+            btnOK.Click += (sender, e) => { prompt.Close(); };
+
+            prompt.Controls.Add(lblWidth);
+            prompt.Controls.Add(comboBox);
+            prompt.Controls.Add(btnOK);
+            prompt.Controls.Add(btnCancel);
+
+            //the combobox was coverd by the label so this way will not be covered.
+            prompt.Controls.SetChildIndex(comboBox, 0);
+            prompt.Controls.SetChildIndex(lblWidth, 1);
+            
+
+            DialogResult dialogResult = prompt.ShowDialog();
+
+            //need to get the values of the cbox and send it to the resize thing.
+            if (dialogResult == DialogResult.OK)
+            {
+                //int width = (int)numericUpDownWidth.Value;
+                //int height = (int)numericUpDownHeight.Value;
+
+                // Handle the selected size values
+                // For example, you can trigger picture resizing based on the selected width and height.
+            }
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

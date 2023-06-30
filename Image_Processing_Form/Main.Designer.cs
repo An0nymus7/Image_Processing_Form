@@ -157,6 +157,7 @@
             MinimumSize = new Size(1280, 720);
             Name = "Main";
             Text = "Form1";
+            Load += Main_Load;
             ((System.ComponentModel.ISupportInitialize)pb_original).EndInit();
             ((System.ComponentModel.ISupportInitialize)pb_processed).EndInit();
             ResumeLayout(false);
