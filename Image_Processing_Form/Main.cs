@@ -1,5 +1,7 @@
+using System.Diagnostics;
 using System.Text.RegularExpressions;
 using static Image_Processing_Form.Error_Window;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace Image_Processing_Form
 {
@@ -202,19 +204,25 @@ namespace Image_Processing_Form
                 }
             }
         }
-
+        //resize warning form/warning for resizes thing
         private void btn_resize_Click(object sender, EventArgs e)
         {
-            ShowResizeDialog();
             if (originalPic != null)
             {
-                var pic = Resize(originalPic, 640, 480);
-                pb_processed.Image = pic;
+                string selected = ShowResizeDialog();
+                if (selected != null)
+                {
+                    int width = int.Parse(selected.Substring(0, 4).Trim());
+                    int height = int.Parse(selected.Substring(6).Trim());
+
+                    var pic = Resize(originalPic, width, height);
+                    pb_processed.Image = pic;
+                }
             }
         }
-        private void ShowResizeDialog()
+        private string ShowResizeDialog()
         {
-            Form prompt = new Form()
+            Form prompt = new Form() //creates a new form window to select te new size of the picture.
             {
                 Width = 250,
                 Height = 150,
@@ -225,22 +233,28 @@ namespace Image_Processing_Form
                 MaximumSize = new Size(250, 150)
             };
 
-
+            //creates a label and a dropdown menu on the from.
             Label lblWidth = new Label() { Left = 15, Top = 20, Text = "Width:" };
             ComboBox comboBox = new ComboBox() { Left = 80, Top = 20, Width = 120 };
 
+            //selectable sizes
             string[] t = { "320 x 240", "640 x 480", "800 x 600", "1024 x 768", "1280 x 720", "1366 x 768", "1600 x 900", "1920 x 1080", "2560 x 1440", "3840 x 2160" };
 
+            //fils the dropdown menu
             foreach (string item in t)
             {
                 comboBox.Items.Add(item);
             }
 
+            //creates 2 button on the form
             Button btnOK = new Button() { Text = "OK", Left = 20, Width = 100, Top = 80, DialogResult = DialogResult.OK };
             Button btnCancel = new Button() { Text = "Cancel", Left = 130, Width = 100, Top = 80, DialogResult = DialogResult.Cancel };
 
+            //set the OK button click event to close the form
             btnOK.Click += (sender, e) => { prompt.Close(); };
+            
 
+            //puts everything on the form
             prompt.Controls.Add(lblWidth);
             prompt.Controls.Add(comboBox);
             prompt.Controls.Add(btnOK);
@@ -249,24 +263,14 @@ namespace Image_Processing_Form
             //the combobox was coverd by the label so this way will not be covered.
             prompt.Controls.SetChildIndex(comboBox, 0);
             prompt.Controls.SetChildIndex(lblWidth, 1);
-            
 
             DialogResult dialogResult = prompt.ShowDialog();
 
-            //need to get the values of the cbox and send it to the resize thing.
-            if (dialogResult == DialogResult.OK)
-            {
-                //int width = (int)numericUpDownWidth.Value;
-                //int height = (int)numericUpDownHeight.Value;
-
-                // Handle the selected size values
-                // For example, you can trigger picture resizing based on the selected width and height.
-            }
-        }
-
-        private void Main_Load(object sender, EventArgs e)
-        {
-            
+            //if the form was closed with okbutton then calls the resize method.
+            if (dialogResult == DialogResult.OK && comboBox.SelectedItem!= null)
+                return comboBox.SelectedItem.ToString();
+            else
+                return null;
         }
     }
 }
